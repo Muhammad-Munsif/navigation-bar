@@ -8,3 +8,4 @@ function toggleMenu() {
     menuList.style.maxHeight = "0px";
   }
 }
+
