@@ -1,19 +1,20 @@
 .navbar {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
-.navbar-brand, .nav-link {
-    color: #fff !important;
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
 }
 
 .navbar-toggler {
-    border: none;
+  border: none;
 }
 
 .navbar-toggler:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .navbar-toggler-icon {
-    filter: invert(1);
+  filter: invert(1);
 }
