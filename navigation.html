@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Examples | Modern Web Solutions</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            padding-top: 80px;
+        }
+
+        /* Main Navigation Bar */
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand i {
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* Navigation Examples Container */
+        .nav-examples {
+            padding: 2rem 0;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .example-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Custom Navigation Bars */
+        /* Example 1: Basic Blue Navbar */
+        .nav-basic {
+            background-color: #004274;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .nav-basic .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .nav-basic ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+
+        .nav-basic ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-basic ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Example 2: Centered Navigation */
+        .nav-centered {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .nav-centered ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-centered ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-centered ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Example 3: Transparent Navigation */
+        .nav-transparent {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-transparent .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-transparent ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-transparent ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-transparent ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-transparent ul li a:hover:after {
+            width: 100%;
+        }
+
+        /* Example 4: Mobile Responsive Navigation */
+        .nav-mobile {
+            background: #2d3748;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .nav-mobile .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-mobile ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .nav-mobile ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-mobile ul li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Example 5: Mega Menu Navigation */
+        .nav-mega {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .nav-mega ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+
+        .nav-mega ul li {
+            position: relative;
+        }
+
+        .nav-mega ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-mega ul li a i {
+            font-size: 1.2rem;
+        }
+
+        .mega-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 600px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            z-index: 100;
+        }
+
+        .nav-mega ul li:hover .mega-dropdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .mega-category h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .mega-category a {
+            display: block;
+            color: #666;
+            padding: 5px 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mega-category a:hover {
+            color: #f5576c;
+        }
+
+        /* Example 6: Tab Navigation */
+        .nav-tabs-example {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-tabs-example ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: #f8fafc;
+        }
+
+        .nav-tabs-example ul li {
+            flex: 1;
+        }
+
+        .nav-tabs-example ul li a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs-example ul li a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background: white;
+        }
+
+        .nav-tabs-example ul li a:hover:not(.active) {
+            background: #e2e8f0;
+        }
+
+        /* Example 7: Vertical Navigation */
+        .nav-vertical {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 20px 0;
+            margin-bottom: 1rem;
+            width: 250px;
+        }
+
+        .nav-vertical ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-vertical ul li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-vertical ul li:last-child {
+            border-bottom: none;
+        }
+
+        .nav-vertical ul li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .nav-vertical ul li a:hover,
+        .nav-vertical ul li a.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 30px;
+        }
+
+        .nav-vertical ul li a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer h5 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-basic ul,
+            .nav-centered ul,
+            .nav-transparent ul,
+            .nav-mega ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .mega-dropdown {
+                width: 400px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .hero-section {
+                padding: 4rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-mobile ul {
+                flex-direction: column;
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2d3748;
+                padding: 20px;
+                border-radius: 0 0 8px 8px;
+            }
+            
+            .nav-mobile ul.show {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .mega-dropdown {
+                width: 300px;
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs-example ul {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .example-card {
+                padding: 1.5rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .mega-dropdown {
+                width: 250px;
+            }
+        }
+
+        /* Code Display */
+        .code-container {
+            background: #1e293b;
+            color: #cbd5e1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+        }
+
+        .code-container pre {
+            margin: 0;
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            margin-top: -10px;
+            margin-right: -10px;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-rocket"></i>
+                ModernWeb
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars text-white"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="navigation.html">Navigation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Navigation Examples</h1>
+            <p class="lead">Explore different responsive navigation styles for your website</p>
+        </div>
+    </section>
+
+    <!-- Navigation Examples -->
+    <section class="nav-examples">
+        <div class="container">
+            <!-- Example 1: Basic Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 1: Basic Navigation Bar</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-basic">
+                            <div class="logo">Logo</div>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code1')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code1">
+<pre>&lt;div class="nav-basic"&gt;
+    &lt;div class="logo"&gt;Logo&lt;/div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-basic {
+    background-color: #004274;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-basic .logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-basic ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-basic ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.nav-basic ul li a:hover {
+    color: #ffd700;
+}
+&lt;/style&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2: Centered Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 2: Centered Navigation</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-centered">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code2')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code2">
+<pre>&lt;div class="nav-centered"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-centered {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px 0;
+}
+
+.nav-centered ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav-centered ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-centered ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+&lt;/style&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Transparent Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 3: Glassmorphism Navigation</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-transparent">
+                            <div class="logo">Brand</div>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><button class="btn btn-light btn-sm">Get Started</button></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code3')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code3">
+<pre>&lt;div class="nav-transparent"&gt;
+    &lt;div class="logo"&gt;Brand&lt;/div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button class="btn btn-light btn-sm"&gt;Get Started&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-transparent {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-transparent .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-transparent ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-transparent ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-transparent ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-transparent ul li a:hover:after {
+    width: 100%;
+}
+&lt;/style&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 4: Mobile Responsive Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 4: Mobile Responsive Navigation</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-mobile">
+                            <div class="logo">MobileNav</div>
+                            <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <ul id="mobileMenu">
+                                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                                <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Services</a></li>
+                                <li><a href="#"><i class="fas fa-phone"></i> Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code4')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code4">
+<pre>&lt;div class="nav-mobile"&gt;
+    &lt;div class="logo"&gt;MobileNav&lt;/div&gt;
+    &lt;button class="mobile-toggle" onclick="toggleMobileMenu()"&gt;
+        &lt;i class="fas fa-bars"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;ul id="mobileMenu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-home"&gt;&lt;/i&gt; Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-info-circle"&gt;&lt;/i&gt; About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-cog"&gt;&lt;/i&gt; Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-phone"&gt;&lt;/i&gt; Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-mobile {
+    background: #2d3748;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.nav-mobile .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-mobile ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-mobile ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-mobile ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-mobile ul {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2d3748;
+        padding: 20px;
+    }
+    
+    .nav-mobile ul.show {
+        display: flex;
+    }
+    
+    .mobile-toggle {
+        display: block;
+    }
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+}
+&lt;/script&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 5: Mega Menu Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 5: Mega Menu Navigation</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-mega">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fas fa-th"></i> Services</a>
+                                    <div class="mega-dropdown">
+                                        <div class="mega-category">
+                                            <h4>Web Development</h4>
+                                            <a href="#">Frontend Development</a>
+                                            <a href="#">Backend Development</a>
+                                            <a href="#">Full Stack</a>
+                                            <a href="#">E-commerce</a>
+                                        </div>
+                                        <div class="mega-category">
+                                            <h4>Digital Marketing</h4>
+                                            <a href="#">SEO</a>
+                                            <a href="#">Social Media</a>
+                                            <a href="#">Email Marketing</a>
+                                            <a href="#">PPC</a>
+                                        </div>
+                                        <div class="mega-category">
+                                            <h4>Design</h4>
+                                            <a href="#">UI/UX Design</a>
+                                            <a href="#">Graphic Design</a>
+                                            <a href="#">Branding</a>
+                                            <a href="#">Motion Graphics</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fas fa-phone"></i> Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code5')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code5">
+<pre>&lt;div class="nav-mega"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;&lt;i class="fas fa-home"&gt;&lt;/i&gt; Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;&lt;i class="fas fa-th"&gt;&lt;/i&gt; Services&lt;/a&gt;
+            &lt;div class="mega-dropdown"&gt;
+                &lt;div class="mega-category"&gt;
+                    &lt;h4&gt;Web Development&lt;/h4&gt;
+                    &lt;a href="#"&gt;Frontend Development&lt;/a&gt;
+                    &lt;a href="#"&gt;Backend Development&lt;/a&gt;
+                    &lt;a href="#"&gt;Full Stack&lt;/a&gt;
+                    &lt;a href="#"&gt;E-commerce&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="mega-category"&gt;
+                    &lt;h4&gt;Digital Marketing&lt;/h4&gt;
+                    &lt;a href="#"&gt;SEO&lt;/a&gt;
+                    &lt;a href="#"&gt;Social Media&lt;/a&gt;
+                    &lt;a href="#"&gt;Email Marketing&lt;/a&gt;
+                    &lt;a href="#"&gt;PPC&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="mega-category"&gt;
+                    &lt;h4&gt;Design&lt;/h4&gt;
+                    &lt;a href="#"&gt;UI/UX Design&lt;/a&gt;
+                    &lt;a href="#"&gt;Graphic Design&lt;/a&gt;
+                    &lt;a href="#"&gt;Branding&lt;/a&gt;
+                    &lt;a href="#"&gt;Motion Graphics&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;&lt;i class="fas fa-briefcase"&gt;&lt;/i&gt; Portfolio&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;&lt;i class="fas fa-phone"&gt;&lt;/i&gt; Contact&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-mega {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 15px 30px;
+}
+
+.nav-mega ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-mega ul li {
+    position: relative;
+}
+
+.nav-mega ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mega-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 20px;
+    z-index: 100;
+}
+
+.nav-mega ul li:hover .mega-dropdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.mega-category h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.mega-category a {
+    display: block;
+    color: #666;
+    padding: 5px 0;
+    text-decoration: none;
+}
+
+.mega-category a:hover {
+    color: #f5576c;
+}
+&lt;/style&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 6: Tab Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 6: Tab Navigation</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-tabs-example">
+                            <ul>
+                                <li><a href="#tab1" class="active">Profile</a></li>
+                                <li><a href="#tab2">Settings</a></li>
+                                <li><a href="#tab3">Messages</a></li>
+                                <li><a href="#tab4">Notifications</a></li>
+                            </ul>
+                            <div style="padding: 20px;">
+                                <div id="tab1" style="display: block;">
+                                    <h4>Profile Information</h4>
+                                    <p>This is your profile information tab content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code6')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code6">
+<pre>&lt;div class="nav-tabs-example"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#tab1" class="active"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab2"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab3"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab4"&gt;Notifications&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div style="padding: 20px;"&gt;
+        &lt;div id="tab1" style="display: block;"&gt;
+            &lt;h4&gt;Profile Information&lt;/h4&gt;
+            &lt;p&gt;This is your profile information tab content.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-tabs-example {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-tabs-example ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #f8fafc;
+}
+
+.nav-tabs-example ul li {
+    flex: 1;
+}
+
+.nav-tabs-example ul li a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs-example ul li a.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+    background: white;
+}
+
+.nav-tabs-example ul li a:hover:not(.active) {
+    background: #e2e8f0;
+}
+&lt;/style&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 7: Vertical Navigation -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="example-card">
+                        <h2 class="example-title">Example 7: Vertical/Sidebar Navigation</h2>
+                        
+                        <!-- Demo -->
+                        <div class="nav-vertical">
+                            <ul>
+                                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                                <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                                <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                                <li><a href="#"><i class="fas fa-file"></i> Documents</a></li>
+                                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Code -->
+                        <button class="copy-btn" onclick="copyCode('code7')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <div class="code-container" id="code7">
+<pre>&lt;div class="nav-vertical"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#" class="active"&gt;&lt;i class="fas fa-home"&gt;&lt;/i&gt; Dashboard&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-user"&gt;&lt;/i&gt; Profile&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-cog"&gt;&lt;/i&gt; Settings&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-envelope"&gt;&lt;/i&gt; Messages&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-chart-bar"&gt;&lt;/i&gt; Analytics&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-file"&gt;&lt;/i&gt; Documents&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-sign-out-alt"&gt;&lt;/i&gt; Logout&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.nav-vertical {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 20px 0;
+    width: 250px;
+}
+
+.nav-vertical ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-vertical ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-vertical ul li:last-child {
+    border-bottom: none;
+}
+
+.nav-vertical ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.nav-vertical ul li a:hover,
+.nav-vertical ul li a.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+}
+
+.nav-vertical ul li a i {
+    width: 20px;
+    text-align: center;
+}
+&lt;/style&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-rocket me-2"></i>ModernWeb</h5>
+                    <p>Creating exceptional digital experiences since 2020. We specialize in responsive web design and development.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html"><i class="fas fa-chevron-right me-2"></i>Home</a>
+                        <a href="about.html"><i class="fas fa-chevron-right me-2"></i>About Us</a>
+                        <a href="services.html"><i class="fas fa-chevron-right me-2"></i>Services</a>
+                        <a href="contact.html"><i class="fas fa-chevron-right me-2"></i>Contact</a>
+                        <a href="navigation.html"><i class="fas fa-chevron-right me-2"></i>Navigation</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Web Street, Digital City</p>
+                    <p><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@modernweb.com</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>&copy; 2024 ModernWeb Solutions. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('show');
+        }
+
+        // Copy code function
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const codeText = codeElement.innerText;
+            
+            // Create temporary textarea
+            const textarea = document.createElement('textarea');
+            textarea.value = codeText;
+            document.body.appendChild(textarea);
+            
+            // Select and copy
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            
+            // Remove textarea
+            document.body.removeChild(textarea);
+            
+            // Show copied message
+            const button = event.target.closest('.copy-btn');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+            }, 2000);
+        }
+
+        // Tab navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update active nav link
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Tab switching
+            const tabLinks = document.querySelectorAll('.nav-tabs-example a');
+            tabLinks.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs
+                    tabLinks.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // In a real implementation, you would show/hide tab content here
+                });
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            
+            if (mobileMenu && mobileToggle && 
+                !mobileMenu.contains(event.target) && 
+                !mobileToggle.contains(event.target)) {
+                mobileMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
